@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap'
+import DishDetail from './DishDetailComponent';
 
 class Menu extends Component {
 
@@ -41,31 +42,6 @@ class Menu extends Component {
         }
     }
 
-    renderComments(dish){
-
-        if(dish != null){
-            var comments = this.props.dishes[this.state.selectedDish.id].comments.map((comment) => {
-                return(
-                    <div key={comment.id}>
-                        <p>"{comment.comment}"</p>
-                        <p>--{comment.author} {comment.date}</p>
-                    </div>
-                ); 
-            });
-            return(
-                <div className="col-12 col-md-5 m-1">
-                <h3>Comments:</h3>
-                {comments}
-                </div>
-            );
-        }
-        else{
-            return(
-                <div></div>
-            );
-        }
-    }
-
     render() {
 
         const menu = this.props.dishes.map((dish) => {
@@ -88,7 +64,7 @@ class Menu extends Component {
                 </div>
                 <div className="row">
                     {this.renderDish(this.state.selectedDish)}
-                    {this.renderComments(this.state.selectedDish)}
+                    <DishDetail selectedDish={this.state.selectedDish}/>
                 </div>
             </div>
         );
