@@ -40,7 +40,6 @@ import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
                 <div></div>
             );
         }
-
     }
 
     const DishDetail = (props) => {
